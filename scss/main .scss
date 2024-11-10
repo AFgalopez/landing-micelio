@@ -16,8 +16,9 @@ body {
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
-    background: #FFDAC6;
-    color: #000;
+    background: linear-gradient(135deg, #2E2B3F, #1F1B24);
+    color: white;
+    font-family: $font-stack, sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 header {
@@ -25,31 +26,54 @@ header {
     
 }
 .navbar {
-    background-color: #BABD8D;
-    padding: 10px 20px;
-  
+    background: linear-gradient(135deg, #4A435A, #645A75);
+    padding: 15px 30px;
+    border-radius: 8px; // Bordes redondeados en el navbar
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     ul {
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-  
-      li {
-        margin: 0 15px;
-  
-        a {
-          text-decoration: none;
-          font-size: 18px;
-          padding: 8px 15px;
-          transition: background-color 0.3s;
-  
-          &:hover {
-            background-color: #555;
-            border-radius: 4px;
-          }
+        list-style-type: none;
+        display: flex;
+        gap: 25px; // Espaciado más amplio entre enlaces
+
+        li {
+            position: relative; // Necesario para la animación de subrayado
+
+            a {
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 500;
+                color: white;
+                padding: 10px 0;
+                transition: color 0.3s;
+
+                // Animación de subrayado
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 0;
+                    height: 2px;
+                    background-color: #333;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover {
+                    color: #c190c5;
+
+                    &::after {
+                        width: 100%; // Subrayado completo al pasar el mouse
+                    }
+                }
+            }
         }
-      }
     }
-  }
+}
+
 
   /* Estilos para el botón de WhatsApp en la esquina inferior derecha */
 .whatsapp-button {
@@ -82,8 +106,7 @@ header {
     flex-direction: column;
     align-items: center;
     img{
-        width: 300px;
-        border-radius: 50%;
+        width: 300px;        
     }
     p{
         text-align: center;
@@ -169,7 +192,6 @@ header {
     &__title {
         font-size: 2rem;
         font-weight: bold;
-        color: #333;
         margin-bottom: 60px;
     }
 
@@ -229,19 +251,21 @@ header {
 /* Estilos generales de la sección de botones */
 .buttons-section {
     display: flex;
-    gap: 15px;
     flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    padding: 40px 0px 60px 0px;
-    background-color: #BABD8D;
+    padding: 40px 0 60px;
+    background: linear-gradient(135deg, #4A435A, #645A75); // Fondo degradado
     width: 100vw;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
 
     &__content {
         width: 420px;
         display: flex;
         justify-content: space-between;
     }
+
     &__link {
         text-decoration: none;
     }
@@ -254,15 +278,17 @@ header {
         border-radius: 8px;
         color: #fff;
         cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
+        // Animación de fondo con sombra y desplazamiento al hover
         &:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: #FDF5DF; // Color de texto claro al hacer hover
         }
 
-        /* Estilos específicos para cada botón */
+        // Estilos específicos para cada botón con gradientes
         &--whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
         }
@@ -278,6 +304,7 @@ header {
 }
 
 
+
 @media screen and (max-width: 768px) {
     body {
         font-size: 14px; /* Reduce el tamaño de la fuente en dispositivos móviles */
@@ -291,6 +318,7 @@ header {
     .navbar ul {
         flex-direction: column;
         align-items: center;
+        padding: 0;
     }
 
     .navbar li {

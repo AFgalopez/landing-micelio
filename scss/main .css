@@ -11,8 +11,9 @@ body {
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
-  background: #FFDAC6;
-  color: #000;
+  background: linear-gradient(135deg, #2E2B3F, #1F1B24);
+  color: white;
+  font-family: "IBM Plex Sant", sant-serif, sans-serif;
   font-family: "Roboto", sans-serif;
 }
 
@@ -21,26 +22,45 @@ header {
 }
 
 .navbar {
-  background-color: #BABD8D;
-  padding: 10px 20px;
+  background: linear-gradient(135deg, #4A435A, #645A75);
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .navbar ul {
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  gap: 25px;
 }
 .navbar ul li {
-  margin: 0 15px;
+  position: relative;
 }
 .navbar ul li a {
   text-decoration: none;
   font-size: 18px;
-  padding: 8px 15px;
-  transition: background-color 0.3s;
+  font-weight: 500;
+  color: white;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #333;
+  transition: width 0.3s ease;
 }
 .navbar ul li a:hover {
-  background-color: #555;
-  border-radius: 4px;
+  color: #c190c5;
+}
+.navbar ul li a:hover::after {
+  width: 100%;
 }
 
 /* Estilos para el botón de WhatsApp en la esquina inferior derecha */
@@ -74,7 +94,6 @@ header {
 }
 .logo img {
   width: 300px;
-  border-radius: 50%;
 }
 .logo p {
   text-align: center;
@@ -156,7 +175,6 @@ header {
 .service-section__title {
   font-size: 2rem;
   font-weight: bold;
-  color: #333;
   margin-bottom: 60px;
 }
 .service-section__list {
@@ -209,13 +227,14 @@ header {
 /* Estilos generales de la sección de botones */
 .buttons-section {
   display: flex;
-  gap: 15px;
   flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  padding: 40px 0px 60px 0px;
-  background-color: #BABD8D;
+  padding: 40px 0 60px;
+  background: linear-gradient(135deg, #4A435A, #645A75);
   width: 100vw;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
 }
 .buttons-section__content {
   width: 420px;
@@ -233,13 +252,13 @@ header {
   border-radius: 8px;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Estilos específicos para cada botón */
 }
 .buttons-section__button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  color: #FDF5DF;
 }
 .buttons-section__button--whatsapp {
   background: linear-gradient(135deg, #25D366, #128C7E);
@@ -261,6 +280,7 @@ header {
   .navbar ul {
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
   .navbar li {
     margin: 10px 0;
